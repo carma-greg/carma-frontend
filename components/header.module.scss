@@ -1,0 +1,16 @@
+.headerOuter {
+    background: red;
+    .headerInner {
+        background-color: beige;
+        display: flex;
+        justify-content: space-between;
+        .headerLeft {
+            .headerLogo {
+                img {
+                    height: 70px;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
