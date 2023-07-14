@@ -1,0 +1,49 @@
+@import '@/styles/variables.scss';
+
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: $transition-std;
+    &.primary {
+        background-color: $button-primary;
+        border: 1px solid $accent-green;
+        color: $text-light;
+    }
+    &.secondary {
+        background-color: $button-secondary;
+        border: 1px solid $accent-purple;
+    }
+    &.new {
+        border: 5px solid $accent-green;
+        border-top: none;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            left: -5px;
+            top: 0;
+            height: 5px;
+            background-color: $accent-green;
+            border-radius: 5px;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            width: 30%;
+            right: -5px;
+            top: 0;
+            height: 5px;
+            background-color: $accent-green;
+            border-radius: 5px;
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 5px 0px rgba(#000, 0.6);
+    }
+}

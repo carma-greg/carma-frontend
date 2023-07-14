@@ -1,5 +1,12 @@
+import { Plus_Jakarta_Sans } from 'next/font/google'
+
 import '../styles/global.scss'
-import Header from '@/components/header'
+import Header from '@/components/header/header'
+
+const jakarta = Plus_Jakarta_Sans({
+    subsets: ['latin'],
+    display: 'swap',
+  })
 
 export const metadata = {
   title: 'Carma Earth',
@@ -12,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={jakarta.className}>
       <body>
         <Header/>
             {children}

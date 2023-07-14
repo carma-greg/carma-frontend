@@ -1,0 +1,41 @@
+@import '@/styles/variables.scss';
+
+
+.split {
+    display: flex;
+    justify-content: space-between;
+    .leftSide {
+        flex: 0 1 auto;
+        h1 {
+            font-size: 6rem;
+            font-weight: 800;
+        }
+        .actionGroup {
+            margin-top: 30px;;
+            display: flex;
+            a {
+                margin-right: 15px;
+            }
+        }
+    }
+    .rightSide {
+        flex: 0 1 auto;
+        .imgGroup {
+            position: relative;
+            max-width: 35vw;
+            height: 100%;
+            .globe {
+                width: 56%;
+                margin-top: 20px;
+                position: absolute;
+                top: -27%;
+                bottom: auto;
+                left: 15%;
+                right: 0%;
+            }
+            .people {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@import '@/styles/variables.scss';
+
+.headerOuter {
+    background-color: $bg-primary;
+    .headerInner {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 5%;
+        .headerLeft {
+            display: flex;
+            align-items: center;
+            .headerLogo {
+                display: flex;
+                align-items: center;
+                img {
+                    height: 35px;
+                    width: auto;
+                }
+            }
+            .navigation {
+                display: flex;
+                .nav {
+                    padding: 5px 10px;
+                    .navLink {
+                        display: inline-block;
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .headerRight {
+            display: flex;
+            align-items: center;
+            a {
+                margin: 0 5px;
+            }
+        }
+    }
+}
