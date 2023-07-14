@@ -1,0 +1,20 @@
+@import '@/styles/variables.scss';
+
+.horizontalForm {
+    display: flex;
+    flex {
+        .formGroup {
+            flex-basis: 25%;
+        }
+    }
+}
+
+.formGroup {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    input {
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
