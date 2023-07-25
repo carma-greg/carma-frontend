@@ -1,4 +1,6 @@
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import { ApolloWrapper } from "./ApolloWrapper";
+
 
 import '../styles/global.scss'
 import Header from '@/components/header/header'
@@ -22,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className={jakarta.className}>
       <body>
         <Header/>
-            {children}
+          <ApolloWrapper>{children}</ApolloWrapper>
         </body>
     </html>
   )
