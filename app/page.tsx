@@ -9,6 +9,7 @@ import Link from 'next/link'
 
 export default async function Home() {
   const session = await getServerSession(authConfig)
+  console.log("sesh: ",session)
   return (
     <>
       {!session ? (
