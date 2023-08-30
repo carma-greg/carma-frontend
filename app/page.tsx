@@ -1,4 +1,4 @@
-import { getServerSession } from 'next-auth'
+// import { getServerSession } from 'next-auth'
 import { authConfig } from './api/auth/[...nextauth]/options'
 
 import Banner from '@/components/banners/banner'
@@ -8,19 +8,28 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home() {
-  const session = await getServerSession(authConfig)
-  console.log("sesh: ",session)
+//   const session = await getServerSession(authConfig)
+//   console.log("sesh: ",session)
   return (
-    <>
-      {!session ? (
-        <div className="main">
-          <h1>LOGIN!!</h1>
-        </div>
-      ):(
       <div className="main">
           <Banner />
       </div>
-      )}
-    </>
   )
 }
+// export default async function Home() {
+//   const session = await getServerSession(authConfig)
+//   console.log("sesh: ",session)
+//   return (
+//     <>
+//       {!session ? (
+//         <div className="main">
+//           <h1>LOGIN!!</h1>
+//         </div>
+//       ):(
+//       <div className="main">
+//           <Banner />
+//       </div>
+//       )}
+//     </>
+//   )
+// }

@@ -1,5 +1,6 @@
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { ApolloWrapper } from "./ApolloWrapper";
+import { AuthProvider } from "../context/state";
 
 
 import '../styles/global.scss'
@@ -15,17 +16,20 @@ export const metadata = {
   description: 'Doing good together',
 }
 
+
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-    <html lang="en" className={jakarta.className}>
-      <body>
-        <Header/>
-          <ApolloWrapper>{children}</ApolloWrapper>
-        </body>
-    </html>
-  )
+    return (
+        <html lang="en" className={jakarta.className}>
+            <body>
+                <AuthProvider>
+                    <Header/>
+                    <ApolloWrapper>{children}</ApolloWrapper>
+                </AuthProvider>
+            </body>
+        </html>
+    )
 }
