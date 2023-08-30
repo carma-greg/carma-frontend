@@ -1,6 +1,6 @@
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { ApolloWrapper } from "./ApolloWrapper";
-import { AuthProvider } from "../context/state";
+import { AuthProvider } from "./state";
 
 
 import '../styles/global.scss'

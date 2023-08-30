@@ -1,1 +1,12 @@
 @import '@/styles/variables.scss';
+
+.impactMap {
+    padding: 20px;
+    .infoBoxCluster {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+}
+

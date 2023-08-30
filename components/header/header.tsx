@@ -1,10 +1,29 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAuth } from '@/app/state'
 
 import styles from './header.module.scss'
 
 import logo from '@/public/images/carma-logo.svg'
 import { LinkButton } from '../buttons/button'
+
+export function UserCluster() {
+    const { user, login, logout, user_id } = useAuth();
+    return(
+        <>
+        {!user?(<>
+            <LinkButton linkHref='/login' linkText='Login' linkStyle='secondary' />
+        <LinkButton linkHref='/blog' linkText='Sign Up' linkStyle='primary' />
+        </>):(<>
+            <LinkButton linkHref='/login' linkText='Log Out' linkStyle='secondary' />
+            </>
+            )
+        }
+        </>
+    )
+}
 
 export default function Header(){
     return (
@@ -15,8 +34,8 @@ export default function Header(){
                         <Image src={logo} alt="Carma.Earth"/>
                     </Link>
                     <ul className={`clean ${styles.navigation}`}>
-                        <li className={styles.nav}><Link href="/" className={styles.navLink}>Subscribe</Link></li>
-                        <li className={styles.nav}><Link href="/" className={styles.navLink}>Business</Link></li>
+                        <li className={styles.nav}><Link href="/shop" className={styles.navLink}>Shop</Link></li>
+                        <li className={styles.nav}><Link href="/dashboard/impact" className={styles.navLink}>Dashboard</Link></li>
                         <li className={styles.nav}><Link href="/" className={styles.navLink}>Cashback</Link></li>
                         <li className={styles.nav}><Link href="/" className={styles.navLink}>About</Link></li>
                         <li className={styles.nav}><Link href="/blog" className={styles.navLink}>Blog</Link></li>
@@ -24,8 +43,7 @@ export default function Header(){
                     </ul>
                 </div>
                 <div className={styles.headerRight}>
-                    <LinkButton linkHref='blog' linkText='Login' linkStyle='secondary' />
-                    <LinkButton linkHref='blog' linkText='Sign Up' linkStyle='primary' />
+                   <UserCluster/>
                 </div>
             </div>
         </div>

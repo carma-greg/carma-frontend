@@ -4,9 +4,14 @@ import { createContext, useContext, ReactNode, useState } from 'react';
 
 type userContext = {
     user: boolean,
-    login: () => void;
+    login: (data: credentials) => void;
     logout: () => void;
     user_id: null | string;
+}
+
+type credentials = {
+    email: string
+    password: string
 }
 
 const authContextDefaultValues: userContext = {
@@ -30,12 +35,28 @@ export function AuthProvider({ children }: Props) {
     const [user, setUser] = useState<boolean>(false);
     const [user_id, setUserId] = useState<null | string>(null);
 
-    const login = () => {
-        setUser(true);
+    const login = async (data:credentials) => {
+        const request = new Request("http://localhost:3001/api/user-signin")
+        try {
+            const res = await fetch(request, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            })
+            const bubble_user = await res.json();
+            console.log("bub: ",bubble_user)
+            setUserId(bubble_user);
+            setUser(true);
+        } catch(error) {
+            setUser(false);
+            setUserId(null);
+        }
+        
     };
 
     const logout = () => {
         setUser(false);
+        setUserId(null);
     };
 
     const value = {
