@@ -1,8 +1,15 @@
-.infoBox {
-    border: 2px solid #000;
-    border-radius: 6px;
-    padding: 15px 30px;
+.infoBoxWrapper {
+    flex-basis: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
+    .infoBox {
+        border: 2px solid #000;
+        border-radius: 6px;
+        padding: 15px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

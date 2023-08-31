@@ -1,12 +1,28 @@
 @import '@/styles/variables.scss';
 
-.impactMap {
-    padding: 20px;
-    .infoBoxCluster {
-        width: 100%;
+.impactCluster {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .impactMap {
+        height: 100%;
+        padding: 20px;
         display: flex;
-        justify-content: space-between;
-        align-items: stretch;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 1 80%;
+        .infoBoxCluster {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+    }
+    .editCluster {
+        flex: 0 1 10%;
+        &.editing {
+            flex-basis: 40%;
+        }
     }
 }
 
