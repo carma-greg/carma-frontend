@@ -7,7 +7,7 @@ import Inputs from '@/components/input-display/inputs'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default async function Home() {
+const Home = async () => {
 //   const session = await getServerSession(authConfig)
 //   console.log("sesh: ",session)
   return (
@@ -16,6 +16,7 @@ export default async function Home() {
       </div>
   )
 }
+
 // export default async function Home() {
 //   const session = await getServerSession(authConfig)
 //   console.log("sesh: ",session)
@@ -33,3 +34,4 @@ export default async function Home() {
 //     </>
 //   )
 // }
+export default Home

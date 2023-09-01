@@ -34,7 +34,7 @@ const query = gql`query {
   }
 }`
 
-export default function Blog() {
+export const Blog = () => {
   const { data }: {data: PostItems} = useSuspenseQuery(query);
   console.log("data: ", data);
   return(
@@ -51,3 +51,5 @@ export default function Blog() {
     </div>
   )
 };
+
+export default Blog

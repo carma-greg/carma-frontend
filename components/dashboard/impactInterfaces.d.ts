@@ -1,8 +1,5 @@
-export type treesData = {
-    treesData: userTrees
-}
 
-export type userTrees = {
+export interface userTrees {
     legacy_uk: number;
     legacy_offshore: number;
     legacy_uk_co2: number;
@@ -16,8 +13,4 @@ export type userTrees = {
     total_offshore: number;
     total_uk_co2: number;
     total_offshore_co2: number;
-}
-
-export type editMode = {
-    editMode: boolean;
 }

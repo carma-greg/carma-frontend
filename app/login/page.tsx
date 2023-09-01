@@ -13,7 +13,7 @@ interface IFormInput {
   password: string
 }
 
-export default function Login() {
+const Login = () => {
     const { user, login, logout, user_id } = useAuth();
     const { register, handleSubmit } = useForm<IFormInput>()
   
@@ -31,3 +31,5 @@ export default function Login() {
         </div>
     )
 }
+
+export default Login

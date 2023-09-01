@@ -2,7 +2,7 @@
 
 import { createContext, useContext, ReactNode, useState } from 'react';
 
-type userContext = {
+export type userContext = {
     user: boolean,
     login: (data: credentials) => void;
     logout: () => void;
@@ -23,7 +23,7 @@ const authContextDefaultValues: userContext = {
 
 const AuthContext = createContext<userContext>(authContextDefaultValues);
 
-export function useAuth() {
+export const useAuth = () => {
     return useContext(AuthContext);
 }
 
@@ -31,7 +31,7 @@ type Props = {
     children: ReactNode;
 };
 
-export function AuthProvider({ children }: Props) {
+export const AuthProvider = ({ children }: Props) => {
     const [user, setUser] = useState<boolean>(false);
     const [user_id, setUserId] = useState<null | string>(null);
 

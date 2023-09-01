@@ -2,7 +2,7 @@
 
 import { useAuth } from "../state";
 
-export default function Shop() {
+const Shop = () => {
     const { user, login, logout, user_id } = useAuth();
   return (
     <div className="main">
@@ -13,3 +13,5 @@ export default function Shop() {
     </div>
   )
 }
+
+export default Shop

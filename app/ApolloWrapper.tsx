@@ -12,7 +12,7 @@ import {
   NextSSRApolloClient
 } from "@apollo/experimental-nextjs-app-support/ssr";
 
-function makeClient() {
+const makeClient = () => {
   const httpLink = new HttpLink({
       uri: "http://localhost:3000/api/graphql",
       fetchOptions: {
@@ -34,7 +34,7 @@ function makeClient() {
   });
 }
 
-export function ApolloWrapper({ children }: React.PropsWithChildren) {
+export const ApolloWrapper = ({ children }: React.PropsWithChildren) => {
   return (
     <ApolloNextAppProvider makeClient={makeClient}>
       {children}
