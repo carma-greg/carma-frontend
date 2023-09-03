@@ -14,7 +14,7 @@ import {
 
 const makeClient = () => {
   const httpLink = new HttpLink({
-      uri: "http://localhost:3000/api/graphql",
+      uri: "http://localhost:3001/api/graphql",
       fetchOptions: {
         mode: 'no-cors'
       }

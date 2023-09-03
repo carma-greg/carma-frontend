@@ -12,7 +12,7 @@ const options = [
 interface InfoBoxProps {
     treesData: userTrees;
     editMode: boolean; 
-    displayState: string;
+    displayState: string | null;
     changeState: (value: string) => void;
 }
 
@@ -32,7 +32,7 @@ const InfoBox = ({treesData, editMode, displayState, changeState}: InfoBoxProps)
                 displayState={displayState}
                 changeState={changeState}
             />
-        case "offshore":
+        case "offshore": 
             return <InfoBoxTemplate 
                 infoOutput={"Offshore Trees"} 
                 statOutput={treesData.total_offshore}
@@ -44,7 +44,7 @@ const InfoBox = ({treesData, editMode, displayState, changeState}: InfoBoxProps)
     }
 }
 
-const InfoBoxTemplate = ({editMode, changeState, infoOutput, statOutput}: InfoBoxProps & TemplateText) => {
+const InfoBoxTemplate = ({editMode, changeState, infoOutput, statOutput, displayState}: InfoBoxProps & TemplateText) => {
     return (
         <div className={styles.infoBoxWrapper}>
             <div className={styles.infoBox}>
@@ -53,6 +53,7 @@ const InfoBoxTemplate = ({editMode, changeState, infoOutput, statOutput}: InfoBo
                 ):(
                     <></>
                 )}
+                {/* <p>{displayState}</p> */}
                 <p>{infoOutput}</p>
                 <p>{statOutput}</p>
             </div>
