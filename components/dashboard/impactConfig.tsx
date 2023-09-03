@@ -1,22 +1,40 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 interface DefaultObject {
-    box1: string,
-    box2: string,
+    infoBoxDisplay_1: string
+    infoBoxDisplay_2: string
+    infoBoxDisplay_3: string
+    infoBoxDisplay_4: string
+    infoBoxDisplay_5: string
+    infoBoxDisplay_6: string
+    mapVisible: boolean
 }
 
-const useImpactConfig = (defaultValues: DefaultObject) => {
+
+
+const useImpactConfig = (impactConfigValues: DefaultObject) => {
    
-    const [infoBoxDisplay_1, setInfoBoxDisplay_1] = useState(defaultValues.box1);
-    const [infoBoxDisplay_2, setInfoBoxDisplay_2] = useState(defaultValues.box2);
-    const [infoBoxDisplay_3, setInfoBoxDisplay_3] = useState(defaultValues.box1);
-    const [infoBoxDisplay_4, setInfoBoxDisplay_4] = useState(defaultValues.box2);
-    const [infoBoxDisplay_5, setInfoBoxDisplay_5] = useState(defaultValues.box1);
-    const [infoBoxDisplay_6, setInfoBoxDisplay_6] = useState(defaultValues.box1);
+    const [infoBoxDisplay_1, setInfoBoxDisplay_1] = useState("uk");
+    const [infoBoxDisplay_2, setInfoBoxDisplay_2] = useState("offshore");
+    const [infoBoxDisplay_3, setInfoBoxDisplay_3] = useState("uk");
+    const [infoBoxDisplay_4, setInfoBoxDisplay_4] = useState("offshore");
+    const [infoBoxDisplay_5, setInfoBoxDisplay_5] = useState("uk");
+    const [infoBoxDisplay_6, setInfoBoxDisplay_6] = useState("offshore");
     const [mapVisible, setMapVisible] = useState(true);
 
-    console.log(infoBoxDisplay_2)
+    
+
+    const saveData = {
+        infoBoxDisplay_1, 
+        infoBoxDisplay_2, 
+        infoBoxDisplay_3, 
+        infoBoxDisplay_4, 
+        infoBoxDisplay_5, 
+        infoBoxDisplay_6, 
+        mapVisible
+    }
+
     return{
         infoBoxDisplay_1, 
         infoBoxDisplay_2, 
@@ -31,7 +49,8 @@ const useImpactConfig = (defaultValues: DefaultObject) => {
         setInfoBoxDisplay_4,
         setInfoBoxDisplay_5,
         setInfoBoxDisplay_6,
-        setMapVisible
+        setMapVisible,
+        saveData
     }
 }
 
