@@ -7,6 +7,7 @@ import useImpactConfig from "@/components/dashboard/impactConfig"
 const options = [
     { value: 'uk', label: 'UK Trees' },
     { value: 'offshore', label: 'Offshore Trees' },
+    { value: 'hidden', label: 'Hidden' },
   ]
 
 interface InfoBoxProps {
@@ -41,6 +42,8 @@ const InfoBox = ({treesData, editMode, displayState, changeState}: InfoBoxProps)
                 displayState={displayState}
                 changeState={changeState}
             />
+        case "hidden":
+            return null
     }
 }
 

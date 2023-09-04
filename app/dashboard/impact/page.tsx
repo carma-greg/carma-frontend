@@ -68,7 +68,7 @@ const ImpactDashboard = () => {
 	const { user_id } = useAuth();
 
 	useEffect(() => {
-		fetch(`https://app.carma.earth/api/1.1/wf/get_user_trees?user_id=${user_id}`)
+		fetch(`https://app.carma.earth/version-7b11/api/1.1/wf/get_user_trees?user_id=${user_id}`)
 		.then((response) => response.json())
 		.then((data) => {
 			setTreesData({

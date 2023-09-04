@@ -31,7 +31,7 @@ const query = gql`query {
 
 const Sidebar = () => {
     const { data }: {data: EventItems} = useSuspenseQuery(query);
-    console.log("data: ", data);
+    // console.log("data: ", data);
     return(
         <div className={styles.sidebar}>
             <h2>Sidebar</h2>
