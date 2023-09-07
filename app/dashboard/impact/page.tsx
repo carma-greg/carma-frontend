@@ -5,10 +5,12 @@ import InfoBox from '@/components/dashboard/impact-map/info-box/infoBox'
 import ImpactMap from '@/components/dashboard/impact-map/impact-map'
 
 import styles from './impact.module.scss'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { userTrees } from '@/components/dashboard/impactInterfaces'
 import useImpactConfig from '@/components/dashboard/impactConfig'
 import { useAuth } from '@/app/state'
+
+import { SketchPicker } from 'react-color'
 
 import dynamic from 'next/dynamic';
 
@@ -121,6 +123,27 @@ const ImpactDashboard = () => {
 	const MapWithNoSSR = dynamic(() => import('@/components/dashboard/impact-map/impact-map'), {
 		ssr: false
 	});
+
+	class Component extends React.Component {
+		state = {
+		  background: '#fff',
+		};
+	  
+		handleChangeComplete = (color) => {
+		  this.setState({ background: color.hex });
+		};
+	  
+		render() {
+		  return (
+			<SketchPicker
+			  color={ this.state.background }
+			  onChangeComplete={ this.handleChangeComplete }
+			/>
+		  );
+		}
+	  }
+
+
 	// console.log("save: ",config.saveData);
 	return (
 		<div className={styles.impactCluster}>
@@ -139,7 +162,14 @@ const ImpactDashboard = () => {
 			</div>
 			<div className={`${styles.editCluster} ${isEditing}`}>
 				<button onClick={() => setEditModeEnabled(!editModeEnabled)}>{!editModeEnabled?"Edit!":"Editing!"}</button>
-				{editModeEnabled? (<button onClick={() => saveMap({infoBoxDisplay_1, infoBoxDisplay_2, infoBoxDisplay_3, infoBoxDisplay_4, infoBoxDisplay_5, infoBoxDisplay_6}, user_id)}>Save</button>):""}
+				{editModeEnabled? (
+					<>
+					<button onClick={() => saveMap({infoBoxDisplay_1, infoBoxDisplay_2, infoBoxDisplay_3, infoBoxDisplay_4, infoBoxDisplay_5, infoBoxDisplay_6}, user_id)}>Save</button>
+					<SketchPicker />
+					</>
+				):
+					<></>
+				}
 			</div>
 		</div>
 	)
